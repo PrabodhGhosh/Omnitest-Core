@@ -1,0 +1,9 @@
+pytest
+pytest-playwright
+pydantic
+pydantic-settings
+python-dotenv
+jsonschema
+allure-pytest
+black
+flake8
