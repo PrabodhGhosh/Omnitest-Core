@@ -3,8 +3,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class OmniSettings(BaseSettings):
     # Use Field with validation_alias to support both .env and OS env vars
-    UI_BASE_URL: str = Field(default="https://parabank.parasoft.com/parabank/index.htm")
-    API_BASE_URL: str = Field(default="https://parabank.parasoft.com/parabank/services/bank")
+    UI_BASE_URL: str = Field(default="https://practice.expandtesting.com")
+    API_BASE_URL: str = Field(default="https://practice.expandtesting.com/api")
 
     # Credentials (Required - Pydantic will throw error if missing from .env)
     USER_NAME: str
