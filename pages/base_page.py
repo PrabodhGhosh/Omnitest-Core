@@ -1,5 +1,7 @@
 import logging
-from playwright.sync_api import Page, Response, expect
+from typing import Union
+
+from playwright.sync_api import Page, Locator, Response, expect
 
 from config.settings import settings
 
@@ -11,51 +13,49 @@ class BasePage:
         self.base_url = settings.UI_BASE_URL
 
 
+    def _get_locator(self, selector_or_locator: Union[str, Locator]) -> Locator:
+        """Helper to ensure we are always working with a Locator object."""
+        if isinstance(selector_or_locator, str):
+            return self.page.locator(selector_or_locator)
+        return selector_or_locator
+
     def navigate(self, endpoint:str = ""):
         url = f"{self.base_url}/{endpoint}".strip("/")
         logger.info(f"Navigating to: {url}")
-        return self.page.goto(url, wait_until="networkidle")
+        response= self.page.goto(url, wait_until="domcontentloaded", timeout=60000)
+        self.wait_for_load()
+        return response
 
     # ----- Injecting Global Behavior ----------
 
-    def click(self, selector:str, name:str = "Element"):
-        """
-        Unified Logging & Enhanced Actionability
-        Instead of just clicking, we log the human-readable name of the element.
-        """
+    def click(self, selector_or_locator: Union[str, Locator], name: str = "Element"):
+        locator = self._get_locator(selector_or_locator)
         try:
             logger.info(f"Clicking on: {name}")
-            self.page.click(selector)
+            # Playwright Locators have built-in auto-waiting
+            locator.click()
         except Exception as e:
-            """
-            Global Error Handling
-            We can trigger a screenshot automatically on any click failure 
-            """
-            logger.info(f"Failed to click on {name}:{e}")
-            self.page.screenshot(path=f"failure_{name}.png")
+            logger.error(f"Failed to click on {name}: {e}")
+            self.page.screenshot(path=f"failure_click_{name}.png")
             raise
 
-    def fill(self, selector:str, value:str, name:str="Input Field", secret: bool=False):
-        """
-        Security & Debugging
-        If 'secret' is True, we don't log the actual value (e.g., passwords).
-        """
+    def fill(self, selector_or_locator: Union[str, Locator], value: str, name: str = "Input Field", secret: bool = False):
+        locator = self._get_locator(selector_or_locator)
         log_value = "******" if secret else value
         logger.info(f"Filling {name} with {log_value}")
-        """
-        Explicit Wait before interaction
-        Ensures the field is ready for input even if the UI is lagging
-        """
-        self.page.wait_for_selector(selector,state="visible")
-        self.page.fill(selector,value)
 
-    def get_text(self, selector:str) -> str:
-        """
-        Standardization ensures we always strip whitespace from UI text for cleaner assertions.
+        try:
+            # wait_for_selector is handled automatically by Locator.fill()
+            locator.fill(value)
+        except Exception as e:
+            logger.error(f"Failed to fill {name}: {e}")
+            self.page.screenshot(path=f"failure_fill_{name}.png")
+            raise
 
-        """
-        self.page.wait_for_selector(selector)
-        text = self.page.text_content(selector)
+    def get_text(self, selector_or_locator: Union[str, Locator]) -> str:
+        locator = self._get_locator(selector_or_locator)
+        # Using inner_text() which is generally preferred for visible text
+        text = locator.inner_text()
         return text.strip() if text else ""
 
     def wait_for_load(self):
@@ -63,5 +63,7 @@ class BasePage:
         Stability for WSL/Windows
         Injects a global synchronization point to wait for the page to be 'quiet'.
         """
-        self.page.wait_for_load_state("domcontentloaded")
-        self.page.wait_for_load_state("networkidle")
+        try:
+            self.page.wait_for_load_state("networkidle", timeout=5000)
+        except Exception:
+            logger.warning("Network did not reach idle state, but continuing...")

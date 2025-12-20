@@ -1,5 +1,11 @@
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from pathlib import Path
+import os
+
+# Get the project root directory (two levels up from config/settings.py)
+ROOT_DIR = Path(__file__).resolve().parent.parent
+ENV_PATH = os.path.join(ROOT_DIR, ".env")
 
 class OmniSettings(BaseSettings):
     # Use Field with validation_alias to support both .env and OS env vars
@@ -16,7 +22,7 @@ class OmniSettings(BaseSettings):
 
     # Tell Pydantic to look for a .env file
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=ENV_PATH,
         env_file_encoding="utf-8",
         extra="ignore" # Ignores extra variables in .env not defined here
     )
