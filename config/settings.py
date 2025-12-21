@@ -1,3 +1,5 @@
+from typing import Optional
+
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pathlib import Path
@@ -8,17 +10,20 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 ENV_PATH = os.path.join(ROOT_DIR, ".env")
 
 class OmniSettings(BaseSettings):
-    # Use Field with validation_alias to support both .env and OS env vars
-    UI_BASE_URL: str = Field(default="https://practice.expandtesting.com")
-    API_BASE_URL: str = Field(default="https://practice.expandtesting.com/api")
+    UI_BASE_URL: str
+    API_BASE_URL: str
 
-    # Credentials (Required - Pydantic will throw error if missing from .env)
-    USER_NAME: str
-    PASSWORD: str
+    # Credentials for Notes App identity
+    USER_EMAIL: str
+    USER_PASSWORD: str
 
-    # Browser Settings
+    # Optional token for Phase 3.3 Hybrid Bridge
+    AUTH_TOKEN: Optional[str] = None
+
+    # Browser config for WSL/Ubuntu environment
     BROWSER_HEADLESS: bool = True
-    SLOW_MO: int = 0  # Useful for debugging UI
+    SLOW_MO: int = 0
+    BROWSER_TYPE: str = "chromium"
 
     # Tell Pydantic to look for a .env file
     model_config = SettingsConfigDict(

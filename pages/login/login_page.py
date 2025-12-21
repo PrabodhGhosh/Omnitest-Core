@@ -5,43 +5,44 @@ from pages.base_page import BasePage
 logger = logging.getLogger(__name__)
 
 class LoginPage(BasePage):
+    # Industry Standard: Define the static route within the Page Object
+    URL_PATH = "app/login"
 
-    def __init__(self, page:Page):
+    def __init__(self, page: Page):
         """
-        Initialize the page with the modern Playwright locator strategies.
-        These are 'lazy', meaning they won't look for the element until
-        an action is performed.
+        Initialize locators for the ExpandTesting Notes App.
+        Aligned with Phase 3.2: Structural Layer.
         """
         super().__init__(page)
-        # Using User-Facing Locators for resilience and accessibility
-        self._username_field = self.page.get_by_label("Username")
-        self._password_field = self.page.get_by_label("Password")
-        self._login_button = self.page.get_by_role("button", name="Login")
+        # Updated to Notes App specific selectors
+        self._email_field = self.page.get_by_test_id("login-email")
+        self._password_field = self.page.get_by_test_id("login-password")
+        self._login_button = self.page.get_by_test_id("login-submit")
 
-        # ExpandTesting uses an alert role for flash messages
-        self._flash_alert = self.page.get_by_role("alert")
+        # Error messages often appear in specific alert components
+        self._error_message = self.page.get_by_test_id("alert-message")
 
     def navigate_to_login(self):
         """
-        Navigates to the /login endpoint of the ExpandTesting site.
-        Uses the base_url defined in the Pydantic settings.
+        Navigates to the /notes/login endpoint.
+        Uses the composition logic: base_url + endpoint.
         """
-        self.navigate("login")
+        self.navigate(self.URL_PATH)
         self.wait_for_load()
 
-    def login(self, username, password):
+    def login(self, email, password):
         """
-        Main action flow.
+        Performs the UI login flow.
+        10% Strategy: Pure UI interaction for E2E testing.
         """
-        logger.info(f"Attempting login for user: {username}")
+        logger.info(f"UI Login Attempt: {email}")
 
-        self.fill(self._username_field, username, name="Username Input")
+        self.fill(self._email_field, email, name="Email Input")
         self.fill(self._password_field, password, name="Password Input", secret=True)
         self.click(self._login_button, name="Login Button")
 
-    def get_status_message(self) -> str:
+    def get_error_message(self) -> str:
         """
-        Returns the text from the flash alert (Success or Error).
-        The BasePage.get_text handles waiting and whitespace stripping.
+        Retrieves the text from the error alert if a login fails.
         """
-        return self.get_text(self._flash_alert)
+        return self.get_text(self._error_message)
