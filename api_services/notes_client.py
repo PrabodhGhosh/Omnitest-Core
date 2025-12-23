@@ -1,5 +1,11 @@
+from http.client import responses
+
 from playwright.sync_api import APIRequestContext
 from config.settings import settings
+from utils.logger import get_logger
+from utils.schema_validator import validate_json_schema
+
+logger = get_logger(__name__)
 
 class NotesApiClient:
     def __init__(self, request_context:APIRequestContext):
@@ -29,12 +35,18 @@ class NotesApiClient:
         self.token = result.get("data", {}).get("token")
         return self.token
 
-    def get_notes(self):
-        """Fetches all notes for the authenticated user."""
-        return self.request.get(
-            f"{self.base_url}/notes",
-            headers={"x-auth-token": self.token}
-        )
+    def get_all_notes(self):
+        """Fetches all notes and validates the array schema."""
+        response = self.request.get(
+        f"{self.base_url}/notes",
+        headers={"x-auth-token": self.token}
+    )
+
+        if response.ok:
+            # Validate that the response is a valid list of notes
+             validate_json_schema(response.json(), "notes_list_schema.json")
+
+        return response
 
     def create_note(self, title: str, description: str, category: str):
         """Creates a new note using the stored token."""
@@ -43,11 +55,20 @@ class NotesApiClient:
             "description": description,
             "category": category
         }
-        return self.request.post(
+        response=  self.request.post(
             f"{self.base_url}/notes",
             data=payload,
             headers={"x-auth-token": self.token}
         )
+
+        if response.ok:
+            logger.info(f"API RESPONDED: {response.status}. Validating Schema...")
+            validate_json_schema(response.json(), "note_schema.json")
+        else:
+            logger.error(f"API ERROR: {response.status} - {response.text()}")
+
+        return response
+
     def delete_note(self, note_id: str):
         """Deletes a specific note by ID."""
         headers = {"x-auth-token": self.token}
@@ -55,3 +76,17 @@ class NotesApiClient:
             f"{self.base_url}/notes/{note_id}",
             headers=headers
         )
+
+    def delete_all_notes(self):
+        """
+        Utility to wipe all notes for the current user.
+        Useful for 'Before' hooks to ensure a clean slate.
+        """
+        logger.info("CLEANUP: Fetching all notes for deletion...")
+        response = self.get_all_notes() # This already has schema validation!
+
+        if response.ok:
+            notes = response.json().get("data", [])
+            for note in notes:
+                self.delete_note(note["id"])
+            logger.info(f"CLEANUP: Deleted {len(notes)} notes.")

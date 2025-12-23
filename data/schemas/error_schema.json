@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "required": ["success", "status", "message"],
+  "properties": {
+    "success": { "const": false },
+    "status": { "type": "integer" },
+    "message": { "type": "string" }
+  }
+}
