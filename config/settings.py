@@ -16,6 +16,8 @@ class OmniSettings(BaseSettings):
     # Credentials for Notes App identity
     USER_EMAIL: str
     USER_PASSWORD: str
+    USER_EMAIL_2:str
+    USER_PASSWORD_2:str
 
     # Optional token for Phase 3.3 Hybrid Bridge
     AUTH_TOKEN: Optional[str] = None

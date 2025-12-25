@@ -19,7 +19,7 @@ class NotesApiClient:
     def login(self) -> str:
         """
         Authenticates via the /users/login endpoint.
-        Uses credentials from your Windows .env file.
+        Uses credentials from the .env file.
         """
         payload = {
             "email": settings.USER_EMAIL,
