@@ -1,0 +1,21 @@
+2026-01-01 19:04:06,112 - test_notes_validation - INFO - TEST: Creating note with short title: 'abc'
+hool
+2026-01-01 19:04:06,252 - test_notes_validation - INFO - TEST: Creating note with invalid category: Vacation
+2026-01-01 19:04:06,409 - test_notes_validation - INFO - TEST: Creating note with invalid category: 12345
+2026-01-01 19:04:06,572 - api_services.notes_client - ERROR - API ERROR: 400 - {"success":false,"status":400,"message":"Category must be one of the categories: Home, Work, Personal"}
+2026-01-01 19:04:06,573 - api_services.notes_client - ERROR - API ERROR: 400 - {"success":false,"status":400,"message":"Title must be between 4 and 100 characters"}
+2026-01-01 19:04:06,579 - test_notes_validation - INFO - SUCCESS: API correctly rejected invalid category 'School'
+2026-01-01 19:04:06,751 - api_services.notes_client - ERROR - API ERROR: 400 - {"success":false,"status":400,"message":"Category must be one of the categories: Home, Work, Personal"}
+2026-01-01 19:04:06,753 - api_services.notes_client - ERROR - API ERROR: 400 - {"success":false,"status":400,"message":"Category must be one of the categories: Home, Work, Personal"}
+2026-01-01 19:04:06,755 - test_notes_validation - INFO - SUCCESS: API correctly rejected invalid category 'Vacation'
+2026-01-01 19:04:06,758 - test_notes_validation - INFO - SUCCESS: API correctly rejected invalid category '12345'
+2026-01-01 19:04:07,157 - test_notes_ui - INFO - UI TEST: Starting manual login journey.
+2026-01-01 19:04:07,305 - test_notes_security - INFO - SETUP: User A created note 695677cf9a54380297ecc79f
+2026-01-01 19:04:07,305 - test_notes_security - INFO - ATTACK: User B attempting to delete Note ID: 695677cf9a54380297ecc79f
+2026-01-01 19:04:07,658 - test_notes_security - INFO - SUCCESS: API successfully blocked cross-user data manipulation.
+2026-01-01 19:04:08,097 - test_notes_security - INFO - CLEANUP: User A note 695677cf9a54380297ecc79f deleted.
+2026-01-01 19:04:28,137 - test_notes_ui - INFO - UI TEST: Manual login successful.
+2026-01-01 19:04:28,137 - test_notes_ui - INFO - UI TEST: Creating note 'Manual Note 157728' via form.
+2026-01-01 19:04:31,074 - test_notes_ui - INFO - UI TEST: Success! Note created and verified manually.
+2026-01-01 19:04:31,075 - test_notes_ui - INFO - UI CLEANUP: Deleting note 'Manual Note 157728' via UI.
+2026-01-01 19:04:33,306 - test_notes_ui - INFO - UI CLEANUP: Verified note is gone from dashboard.

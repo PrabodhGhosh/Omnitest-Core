@@ -1,0 +1,8 @@
+2026-01-01 19:02:46,383 - api_services.notes_client - INFO - API RESPONDED: 200. Validating Schema...
+2026-01-01 19:02:46,387 - utils.schema_validator - INFO - DEBUG: Looking for schema at: C:\Users\Prabodh Ghosh\IdeaProjects\OmniTest-Core\data\schemas\note_schema.json
+2026-01-01 19:02:46,398 - utils.schema_validator - INFO - SCHEMA VALIDATION: Passed for note_schema.json
+2026-01-01 19:02:46,836 - test_notes_validation - INFO - TEST: Creating note with missing 'title' field
+2026-01-01 19:02:47,087 - test_notes_validation - INFO - SUCCESS: API correctly identified missing required field.
+2026-01-01 19:02:54,897 - api_services.notes_client - INFO - API RESPONDED: 200. Validating Schema...
+2026-01-01 19:02:54,902 - utils.schema_validator - INFO - DEBUG: Looking for schema at: C:\Users\Prabodh Ghosh\IdeaProjects\OmniTest-Core\data\schemas\note_schema.json
+2026-01-01 19:02:54,907 - utils.schema_validator - INFO - SCHEMA VALIDATION: Passed for note_schema.json
