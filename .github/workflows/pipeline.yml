@@ -1,0 +1,50 @@
+name: OmniTest Core CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  test-and-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build and Run Tests
+        run: |
+          docker build -t omnitest-core .
+          docker run --name test-container \
+            -e BASE_URL=${{ secrets.BASE_URL }} \
+            -e USER_EMAIL=${{ secrets.USER_EMAIL }} \
+            -e USER_PASSWORD=${{ secrets.USER_PASSWORD }} \
+            -e PWHEADLESS=1 \
+            omnitest-core
+        # We allow the pipeline to continue even if tests fail so we can see the report
+        continue-on-error: true
+
+      - name: Copy Results from Container
+        run: docker cp test-container:/app/reports/allure-results ./allure-results
+
+      - name: Generate Allure Report
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        with:
+          allure_results: allure-results
+          allure_history: allure-history
+          keep_reports: 20
+
+      - name: Deploy Report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
