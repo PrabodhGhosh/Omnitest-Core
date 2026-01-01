@@ -1,0 +1,15 @@
+2026-01-01 15:52:07,724 - api_services.notes_client - INFO - CLEANUP: Fetching all notes for deletion...
+2026-01-01 15:52:07,780 - utils.schema_validator - INFO - DEBUG: Looking for schema at: /app/data/schemas/notes_list_schema.json
+2026-01-01 15:52:07,783 - utils.schema_validator - INFO - SCHEMA VALIDATION: Passed for notes_list_schema.json
+2026-01-01 15:52:07,787 - api_services.notes_client - INFO - CLEANUP: Deleted 0 notes.
+2026-01-01 15:52:07,852 - api_services.notes_client - INFO - API RESPONDED: 200. Validating Schema...
+2026-01-01 15:52:07,860 - utils.schema_validator - INFO - DEBUG: Looking for schema at: /app/data/schemas/note_schema.json
+2026-01-01 15:52:07,864 - utils.schema_validator - INFO - SCHEMA VALIDATION: Passed for note_schema.json
+2026-01-01 15:52:07,934 - api_services.notes_client - INFO - API RESPONDED: 200. Validating Schema...
+2026-01-01 15:52:07,942 - utils.schema_validator - INFO - DEBUG: Looking for schema at: /app/data/schemas/note_schema.json
+2026-01-01 15:52:07,953 - utils.schema_validator - INFO - SCHEMA VALIDATION: Passed for note_schema.json
+2026-01-01 15:52:08,013 - api_services.notes_client - INFO - API RESPONDED: 200. Validating Schema...
+2026-01-01 15:52:08,020 - utils.schema_validator - INFO - DEBUG: Looking for schema at: /app/data/schemas/note_schema.json
+2026-01-01 15:52:08,024 - utils.schema_validator - INFO - SCHEMA VALIDATION: Passed for note_schema.json
+2026-01-01 15:52:08,024 - test_note_management - INFO - HYBRID SETUP: Created 3 notes via API.
+2026-01-01 15:52:08,609 - test_note_management - INFO - HYBRID SUCCESS: All API-created notes verified in UI.

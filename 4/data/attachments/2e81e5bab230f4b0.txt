@@ -1,6 +1,0 @@
-2026-01-01 15:41:44,323 - api_services.notes_client - INFO - API RESPONDED: 200. Validating Schema...
-2026-01-01 15:41:44,325 - utils.schema_validator - INFO - DEBUG: Looking for schema at: /app/data/schemas/note_schema.json
-2026-01-01 15:41:44,328 - utils.schema_validator - INFO - SCHEMA VALIDATION: Passed for note_schema.json
-2026-01-01 15:41:44,330 - test_note_integration - INFO - API SUCCESS: Note ID 695695b85a12160294dbc0ec created and stored in DB.
-2026-01-01 15:41:44,330 - test_note_integration - INFO - ACTION: Reloading authenticated_page at https://practice.expandtesting.com/notes/app
-2026-01-01 15:41:44,641 - test_note_integration - INFO - NETWORK: UI received notes list from server (Status: 200)

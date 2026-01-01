@@ -1,0 +1,6 @@
+INFO     api_services.notes_client:notes_client.py:65 API RESPONDED: 200. Validating Schema...
+INFO     utils.schema_validator:schema_validator.py:21 DEBUG: Looking for schema at: /app/data/schemas/note_schema.json
+INFO     utils.schema_validator:schema_validator.py:31 SCHEMA VALIDATION: Passed for note_schema.json
+INFO     test_note_integration:test_note_integration.py:21 API SUCCESS: Note ID 695698265a12160294dbc151 created and stored in DB.
+INFO     test_note_integration:test_note_integration.py:24 ACTION: Reloading authenticated_page at https://practice.expandtesting.com/notes/app
+INFO     test_note_integration:test_note_integration.py:27 NETWORK: UI received notes list from server (Status: 200)

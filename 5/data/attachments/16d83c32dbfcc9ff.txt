@@ -1,0 +1,8 @@
+INFO     api_services.notes_client:notes_client.py:65 API RESPONDED: 200. Validating Schema...
+INFO     utils.schema_validator:schema_validator.py:21 DEBUG: Looking for schema at: /app/data/schemas/note_schema.json
+INFO     utils.schema_validator:schema_validator.py:31 SCHEMA VALIDATION: Passed for note_schema.json
+INFO     test_notes_crud:test_notes_crud.py:19 CRUD: Created note 695698265a12160294dbc148
+INFO     test_notes_crud:test_notes_crud.py:28 CRUD: Read verification successful
+INFO     test_notes_crud:test_notes_crud.py:45 CRUD: Update verification successful
+INFO     test_notes_crud:test_notes_crud.py:50 CRUD: Delete successful
+INFO     test_notes_crud:test_notes_crud.py:58 CRUD: Final 404 verification successful. Note is truly gone.
