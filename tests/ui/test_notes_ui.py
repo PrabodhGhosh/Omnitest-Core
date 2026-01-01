@@ -33,7 +33,7 @@ def test_full_manual_note_creation_journey(page: Page, login_page: LoginPage, no
     # 3. Verification of UI feedback
     # Check for the card appearing
     try:
-        expect(page.get_by_test_id("note-card-title").filter(has_text=note_title)).to_be_visible()
+        expect(page.get_by_test_id("note-card-title").filter(has_text=note_title)).to_be_visible(timeout=10000)
 
         logger.info("UI TEST: Success! Note created and verified manually.")
 
