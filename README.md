@@ -1,3 +1,6 @@
+
+![Omnitest CI](https://github.com/PrabodhGhosh/Omnitest-Core/actions/workflows/pipeline.yml/badge.svg)
+
 # Omnitest-Core 🚀
 
 A professional-grade automated testing framework designed for end-to-end (E2E) validation of web applications. This project demonstrates a hybrid testing approach combining **API**, **UI**, and **Integration** tests in a single pipeline.
