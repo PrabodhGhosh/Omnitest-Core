@@ -18,4 +18,5 @@ RUN playwright install chromium
 
 # 6. Default command: Run all tests in parallel
 # We don't use --headed here because Docker containers are headless by default
+RUN mkdir -p reports/allure-results
 CMD ["pytest", "-n", "auto"]
