@@ -1,4 +1,5 @@
 import pytest
+import allure
 from playwright.sync_api import Page, APIRequestContext
 
 from config.settings import settings
@@ -75,3 +76,22 @@ def secondary_token(api_context):
     response = api_context.post(url, data=payload)
 
     return response.json()["data"]["token"]
+
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    # This hook checks the result of each test phase (setup, call, teardown)
+    outcome = yield
+    rep = outcome.get_result()
+
+    # We only care about the actual test execution ('call') failure
+    if rep.when == 'call' and rep.failed:
+        page: Page = item.funcargs.get('page') or item.funcargs.get('authenticated_page')
+        if page:
+            # 1. Attach Screenshot
+            allure.attach(
+                page.screenshot(full_page=True),
+                name="failure_screenshot",
+                attachment_type=allure.attachment_type.PNG
+            )
+            # 2. Attach Trace (if tracing is enabled)
+            # Trace files are viewed at trace.playwright.dev

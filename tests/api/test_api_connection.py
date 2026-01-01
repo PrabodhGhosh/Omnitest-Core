@@ -12,5 +12,5 @@ def test_connection():
         print(f"Successfully logged in! Token: {token[:10]}...")
 
         # Test Get Notes
-        response = client.get_notes()
+        response = client.get_all_notes()
         print(f"Notes Status: {response.status}")

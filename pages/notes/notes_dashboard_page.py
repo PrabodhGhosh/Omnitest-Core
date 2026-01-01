@@ -1,4 +1,5 @@
 import logging
+import allure
 from playwright.sync_api import Page
 from pages.base_page import BasePage
 
@@ -38,6 +39,7 @@ class NotesDashboardPage(BasePage):
         logger.info("Verifying welcome message visibility")
         return self._welcome_message.is_visible()
 
+
     def get_header_text(self) -> str:
         """Returns the dashboard header text."""
         return self.get_text(self._notes_list_text)
@@ -46,6 +48,7 @@ class NotesDashboardPage(BasePage):
         """Performs logout to return to the login screen."""
         logger.info("Clicking logout from dashboard")
         self.click(self._logout_button, name="Logout Button")
+
 
     def is_note_visible(self, title: str) -> bool:
         """
@@ -56,6 +59,7 @@ class NotesDashboardPage(BasePage):
         note = self._note_items.filter(has_text=title)
         return note.is_visible()
 
+    @allure.step("Create a new note with title: {title}")
     def add_note(self, title: str, description: str, category: str = "Home"):
         """Performs the full UI action of adding a new note."""
         self.add_note_btn.click()
@@ -68,6 +72,7 @@ class NotesDashboardPage(BasePage):
         # Submit
         self.create_btn.click()
 
+    @allure.step("Delete note with title: {title}")
     def delete_note_by_title(self, title: str):
         """Finds a note card by title and performs the UI delete flow."""
         # 1. Locate the specific card that contains the title

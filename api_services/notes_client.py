@@ -1,5 +1,4 @@
-from http.client import responses
-
+import allure
 from playwright.sync_api import APIRequestContext
 from config.settings import settings
 from utils.logger import get_logger
@@ -48,6 +47,7 @@ class NotesApiClient:
 
         return response
 
+    @allure.step("API: Create note '{title}'")
     def create_note(self, title: str, description: str, category: str):
         """Creates a new note using the stored token."""
         payload = {
@@ -77,6 +77,7 @@ class NotesApiClient:
             headers=headers
         )
 
+    @allure.step("API: Delete all existing notes")
     def delete_all_notes(self):
         """
         Utility to wipe all notes for the current user.
