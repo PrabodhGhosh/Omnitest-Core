@@ -1,0 +1,15 @@
+INFO     api_services.notes_client:notes_client.py:86 CLEANUP: Fetching all notes for deletion...
+INFO     utils.schema_validator:schema_validator.py:21 DEBUG: Looking for schema at: /app/data/schemas/notes_list_schema.json
+INFO     utils.schema_validator:schema_validator.py:31 SCHEMA VALIDATION: Passed for notes_list_schema.json
+INFO     api_services.notes_client:notes_client.py:93 CLEANUP: Deleted 4 notes.
+INFO     api_services.notes_client:notes_client.py:65 API RESPONDED: 200. Validating Schema...
+INFO     utils.schema_validator:schema_validator.py:21 DEBUG: Looking for schema at: /app/data/schemas/note_schema.json
+INFO     utils.schema_validator:schema_validator.py:31 SCHEMA VALIDATION: Passed for note_schema.json
+INFO     api_services.notes_client:notes_client.py:65 API RESPONDED: 200. Validating Schema...
+INFO     utils.schema_validator:schema_validator.py:21 DEBUG: Looking for schema at: /app/data/schemas/note_schema.json
+INFO     utils.schema_validator:schema_validator.py:31 SCHEMA VALIDATION: Passed for note_schema.json
+INFO     api_services.notes_client:notes_client.py:65 API RESPONDED: 200. Validating Schema...
+INFO     utils.schema_validator:schema_validator.py:21 DEBUG: Looking for schema at: /app/data/schemas/note_schema.json
+INFO     utils.schema_validator:schema_validator.py:31 SCHEMA VALIDATION: Passed for note_schema.json
+INFO     test_note_management:test_note_management.py:20 HYBRID SETUP: Created 3 notes via API.
+INFO     test_note_management:test_note_management.py:36 HYBRID SUCCESS: All API-created notes verified in UI.

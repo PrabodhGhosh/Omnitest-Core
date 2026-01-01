@@ -1,0 +1,10 @@
+INFO     test_notes_ui:test_notes_ui.py:20 UI TEST: Starting manual login journey.
+INFO     pages.login.login_page:login_page.py:38 UI Login Attempt: ghosh.prabodh@gmail.com
+INFO     pages.base_page:base_page.py:45 Filling Email Input with ghosh.prabodh@gmail.com
+INFO     pages.base_page:base_page.py:45 Filling Password Input with ******
+INFO     pages.base_page:base_page.py:34 Clicking on: Login Button
+INFO     test_notes_ui:test_notes_ui.py:26 UI TEST: Manual login successful.
+INFO     test_notes_ui:test_notes_ui.py:30 UI TEST: Creating note 'Manual Note 76399' via form.
+INFO     test_notes_ui:test_notes_ui.py:38 UI TEST: Success! Note created and verified manually.
+INFO     test_notes_ui:test_notes_ui.py:42 UI CLEANUP: Deleting note 'Manual Note 76399' via UI.
+INFO     test_notes_ui:test_notes_ui.py:47 UI CLEANUP: Verified note is gone from dashboard.

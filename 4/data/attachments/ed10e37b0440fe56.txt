@@ -1,0 +1,2 @@
+INFO     test_notes_validation:test_notes_validation.py:54 TEST: Creating note with missing 'title' field
+INFO     test_notes_validation:test_notes_validation.py:71 SUCCESS: API correctly identified missing required field.

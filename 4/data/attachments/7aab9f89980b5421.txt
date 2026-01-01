@@ -1,0 +1,2 @@
+INFO     test_notes_security:test_notes_security.py:15 TEST: Attempting to fetch notes without an auth token.
+INFO     test_notes_security:test_notes_security.py:22 SUCCESS: API correctly rejected unauthorized request.

@@ -1,0 +1,5 @@
+INFO     pages.base_page:base_page.py:24 Navigating to: https://practice.expandtesting.com/notes/app/login
+INFO     pages.login.login_page:login_page.py:38 UI Login Attempt: nonexistent_user@example.com
+INFO     pages.base_page:base_page.py:45 Filling Email Input with nonexistent_user@example.com
+INFO     pages.base_page:base_page.py:45 Filling Password Input with ******
+INFO     pages.base_page:base_page.py:34 Clicking on: Login Button

@@ -1,0 +1,2 @@
+INFO     utils.schema_validator:schema_validator.py:21 DEBUG: Looking for schema at: /app/data/schemas/notes_list_schema.json
+INFO     utils.schema_validator:schema_validator.py:31 SCHEMA VALIDATION: Passed for notes_list_schema.json

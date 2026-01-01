@@ -1,0 +1,3 @@
+INFO     test_notes_validation:test_notes_validation.py:15 TEST: Creating note with invalid category: School
+ERROR    api_services.notes_client:notes_client.py:68 API ERROR: 400 - {"success":false,"status":400,"message":"Category must be one of the categories: Home, Work, Personal"}
+INFO     test_notes_validation:test_notes_validation.py:29 SUCCESS: API correctly rejected invalid category 'School'

@@ -1,0 +1,2 @@
+INFO     test_notes_validation:test_notes_validation.py:37 TEST: Creating note with short title: 'abc'
+ERROR    api_services.notes_client:notes_client.py:68 API ERROR: 400 - {"success":false,"status":400,"message":"Title must be between 4 and 100 characters"}
