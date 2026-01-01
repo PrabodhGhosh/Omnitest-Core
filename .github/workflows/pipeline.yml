@@ -35,6 +35,12 @@ jobs:
       - name: Copy Results from Container
         run: docker cp test-container:/app/reports/allure-results ./allure-results
 
+      - name: Create Allure Environment Info
+        run: |
+            echo "URL=${{ secrets.BASE_URL }}" >> ./allure-results/environment.properties
+            echo "Executor=GitHub Actions" >> ./allure-results/environment.properties
+            echo "OS=Ubuntu 22.04" >> ./allure-results/environment.properties
+
       - name: Generate Allure Report
         uses: simple-elf/allure-report-action@master
         if: always()
