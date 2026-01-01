@@ -1,0 +1,2 @@
+2026-01-01 16:10:32,560 - utils.schema_validator - INFO - DEBUG: Looking for schema at: /app/data/schemas/notes_list_schema.json
+2026-01-01 16:10:32,561 - utils.schema_validator - INFO - SCHEMA VALIDATION: Passed for notes_list_schema.json

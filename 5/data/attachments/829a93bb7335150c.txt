@@ -1,3 +1,0 @@
-2026-01-01 15:52:05,584 - test_notes_validation - INFO - TEST: Creating note with invalid category: Vacation
-2026-01-01 15:52:05,660 - api_services.notes_client - ERROR - API ERROR: 400 - {"success":false,"status":400,"message":"Category must be one of the categories: Home, Work, Personal"}
-2026-01-01 15:52:05,662 - test_notes_validation - INFO - SUCCESS: API correctly rejected invalid category 'Vacation'

@@ -1,0 +1,49 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"
+        STRATEGY: Functional E2E API Lifecycle.
+        Tests the full 'Happy Path' of a resource from birth to death.
+        ","285","test_note_full_lifecycle","tests.api","Thu Jan 01 16:10:33 UTC 2026","passed","Thu Jan 01 16:10:33 UTC 2026","TestNotesCRUD","test_notes_crud","",""
+"
+        STRATEGY: Negative Testing / Boundary Value Analysis.
+        The API documentation requires titles to be at least 4 characters.
+        ","117","test_create_note_with_too_short_title_fails","tests.api","Thu Jan 01 16:10:32 UTC 2026","passed","Thu Jan 01 16:10:32 UTC 2026","TestNotesValidation","test_notes_validation","",""
+"
+        STRATEGY: Boundary/Enum Testing.
+        Verifies that the API correctly rejects categories not in the allowed list.
+        ","122","test_create_note_with_invalid_category_fails[Vacation]","tests.api","Thu Jan 01 16:10:32 UTC 2026","passed","Thu Jan 01 16:10:32 UTC 2026","TestNotesValidation","test_notes_validation","",""
+"
+        Test Case: Verify that a registered user can log in via the UI.
+        Target: https://practice.expandtesting.com/notes/login
+        ","4246","test_successful_notes_login[chromium]","tests.ui.login","Thu Jan 01 16:10:35 UTC 2026","passed","Thu Jan 01 16:10:39 UTC 2026","TestLogin","test_login","",""
+"
+    STRATEGY: 10% Pure UI E2E Test.
+    ","4500","test_full_manual_note_creation_journey[chromium]","tests.ui","Thu Jan 01 16:10:35 UTC 2026","passed","Thu Jan 01 16:10:40 UTC 2026","","test_notes_ui","",""
+"
+        STRATEGY: Boundary/Enum Testing.
+        Verifies that the API correctly rejects categories not in the allowed list.
+        ","87","test_create_note_with_invalid_category_fails[12345]","tests.api","Thu Jan 01 16:10:32 UTC 2026","passed","Thu Jan 01 16:10:32 UTC 2026","TestNotesValidation","test_notes_validation","",""
+"
+        STRATEGY: Robustness / Error Handling.
+        Verify API behavior when mandatory 'title' is missing.
+        ","52","test_create_note_with_missing_required_fields","tests.api","Thu Jan 01 16:10:32 UTC 2026","passed","Thu Jan 01 16:10:32 UTC 2026","TestNotesValidation","test_notes_validation","",""
+"","510","test_api_created_note_appears_in_ui[chromium]","tests.hybrid","Thu Jan 01 16:10:34 UTC 2026","failed","Thu Jan 01 16:10:34 UTC 2026","","test_note_integration","",""
+"
+    STRATEGY: Hybrid - Mass Data Injection.
+    Injects 3 notes via API and verifies UI renders the correct count.
+    ","1423","test_mass_api_notes_appear_in_ui[chromium]","tests.hybrid","Thu Jan 01 16:10:34 UTC 2026","passed","Thu Jan 01 16:10:35 UTC 2026","","test_note_management","",""
+"
+        STRATEGY: Boundary/Enum Testing.
+        Verifies that the API correctly rejects categories not in the allowed list.
+        ","54","test_create_note_with_invalid_category_fails[School]","tests.api","Thu Jan 01 16:10:32 UTC 2026","passed","Thu Jan 01 16:10:32 UTC 2026","TestNotesValidation","test_notes_validation","",""
+"
+        Test Case: Verify that invalid credentials trigger the correct UI error message.
+        ","3870","test_invalid_notes_login[chromium]","tests.ui.login","Thu Jan 01 16:10:33 UTC 2026","passed","Thu Jan 01 16:10:37 UTC 2026","TestLogin","test_login","",""
+"
+        STRATEGY: Authentication check.
+        Verifies that requests without a token are rejected with 401.
+        ","396","test_unauthorized_access_is_rejected","tests.api","Thu Jan 01 16:10:31 UTC 2026","passed","Thu Jan 01 16:10:32 UTC 2026","TestNotesSecurity","test_notes_security","",""
+"","1416","test_connection","tests.api","Thu Jan 01 16:10:31 UTC 2026","passed","Thu Jan 01 16:10:32 UTC 2026","","test_api_connection","",""
+"
+        STRATEGY: IDOR (Insecure Direct Object Reference).
+        Ensures User B cannot delete User A's data even if they have the ID.
+        ","205","test_cross_user_deletion_is_forbidden","tests.api","Thu Jan 01 16:10:32 UTC 2026","passed","Thu Jan 01 16:10:32 UTC 2026","TestNotesSecurity","test_notes_security","",""

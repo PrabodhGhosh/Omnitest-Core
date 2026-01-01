@@ -1,0 +1,6 @@
+2026-01-01 16:10:35,945 - test_notes_ui - INFO - UI TEST: Starting manual login journey.
+2026-01-01 16:10:38,530 - test_notes_ui - INFO - UI TEST: Manual login successful.
+2026-01-01 16:10:38,530 - test_notes_ui - INFO - UI TEST: Creating note 'Manual Note 945179' via form.
+2026-01-01 16:10:39,367 - test_notes_ui - INFO - UI TEST: Success! Note created and verified manually.
+2026-01-01 16:10:39,367 - test_notes_ui - INFO - UI CLEANUP: Deleting note 'Manual Note 945179' via UI.
+2026-01-01 16:10:40,443 - test_notes_ui - INFO - UI CLEANUP: Verified note is gone from dashboard.
