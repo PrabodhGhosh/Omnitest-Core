@@ -1,0 +1,2 @@
+2026-01-01 16:21:31,994 - test_notes_security - INFO - TEST: Attempting to fetch notes without an auth token.
+2026-01-01 16:21:32,359 - test_notes_security - INFO - SUCCESS: API correctly rejected unauthorized request.

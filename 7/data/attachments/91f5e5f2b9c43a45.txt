@@ -1,0 +1,8 @@
+2026-01-01 16:21:33,723 - api_services.notes_client - INFO - API RESPONDED: 200. Validating Schema...
+2026-01-01 16:21:33,727 - utils.schema_validator - INFO - DEBUG: Looking for schema at: /app/data/schemas/note_schema.json
+2026-01-01 16:21:33,729 - utils.schema_validator - INFO - SCHEMA VALIDATION: Passed for note_schema.json
+2026-01-01 16:21:33,732 - test_notes_crud - INFO - CRUD: Created note 69569f0d5a12160294dbc21a
+2026-01-01 16:21:33,758 - test_notes_crud - INFO - CRUD: Read verification successful
+2026-01-01 16:21:33,800 - test_notes_crud - INFO - CRUD: Update verification successful
+2026-01-01 16:21:33,826 - test_notes_crud - INFO - CRUD: Delete successful
+2026-01-01 16:21:33,844 - test_notes_crud - INFO - CRUD: Final 404 verification successful. Note is truly gone.

@@ -1,0 +1,7 @@
+2026-01-01 16:21:32,753 - api_services.notes_client - INFO - API RESPONDED: 200. Validating Schema...
+2026-01-01 16:21:32,760 - utils.schema_validator - INFO - DEBUG: Looking for schema at: /app/data/schemas/note_schema.json
+2026-01-01 16:21:32,762 - utils.schema_validator - INFO - SCHEMA VALIDATION: Passed for note_schema.json
+2026-01-01 16:21:32,766 - test_notes_security - INFO - SETUP: User A created note 69569f0c5a12160294dbc20e
+2026-01-01 16:21:32,766 - test_notes_security - INFO - ATTACK: User B attempting to delete Note ID: 69569f0c5a12160294dbc20e
+2026-01-01 16:21:32,791 - test_notes_security - INFO - SUCCESS: API successfully blocked cross-user data manipulation.
+2026-01-01 16:21:32,820 - test_notes_security - INFO - CLEANUP: User A note 69569f0c5a12160294dbc20e deleted.

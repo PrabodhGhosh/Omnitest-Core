@@ -1,0 +1,2 @@
+2026-01-01 16:21:32,827 - test_notes_validation - INFO - TEST: Creating note with missing 'title' field
+2026-01-01 16:21:32,845 - test_notes_validation - INFO - SUCCESS: API correctly identified missing required field.

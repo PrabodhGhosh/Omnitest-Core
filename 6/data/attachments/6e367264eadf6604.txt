@@ -1,2 +1,0 @@
-2026-01-01 16:10:32,435 - test_notes_validation - INFO - TEST: Creating note with short title: 'abc'
-2026-01-01 16:10:32,547 - api_services.notes_client - ERROR - API ERROR: 400 - {"success":false,"status":400,"message":"Title must be between 4 and 100 characters"}
